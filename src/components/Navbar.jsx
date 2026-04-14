@@ -22,8 +22,10 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'About', href: '#about' },
+    { name: 'Education', href: '#education' },
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
+    { name: 'Achievements', href: '#achievements' },
     { name: 'Projects', href: '#projects' },
     { name: 'Certifications', href: '#certifications' },
     { name: 'Contact', href: '#contact' },
@@ -41,7 +43,7 @@ const Navbar = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
           >
-            <a href="#" className={`text-3xl font-black tracking-tighter transition-all duration-500 ${scrolled ? 'text-white drop-shadow-lg' : 'text-slate-900'}`}>
+            <a href="#" className={`text-3xl font-black tracking-tighter transition-all duration-500 flex items-center gap-2 px-6 py-2 rounded-2xl ${scrolled ? 'text-white bg-slate-900/80 backdrop-blur-xl border border-white/10 shadow-2xl' : 'text-slate-900 bg-transparent'}`}>
               Malini<span className="text-primary-600">.D</span>
             </a>
           </motion.div>

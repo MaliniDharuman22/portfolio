@@ -11,9 +11,12 @@ import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+import CustomCursor from './components/CustomCursor';
+
 function App() {
   return (
     <div className="min-h-screen bg-[#fafafa] font-sans text-slate-900 relative selection:bg-primary-100 selection:text-primary-900">
+      <CustomCursor />
       {/* Global Grain & Texture */}
       <div className="grain-overlay" />
       

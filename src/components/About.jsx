@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Code, Database, Zap } from 'lucide-react';
+import { Award, Code, Database, Zap, Cpu } from 'lucide-react';
 
 const About = () => {
   const highlights = [

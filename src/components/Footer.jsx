@@ -1,6 +1,5 @@
 import React from 'react';
-import { Linkedin, Mail, ArrowUp } from 'lucide-react';
-import GithubIcon from 'lucide-react/dist/esm/icons/github';
+import { Linkedin, Mail, ArrowUp, Github } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -94,7 +93,7 @@ const Footer = () => {
           </button>
         </div>
       </div>
-    </section>
+    </footer>
   );
 };
 
