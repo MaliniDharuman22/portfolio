@@ -12,85 +12,87 @@ const About = () => {
 
   return (
     <section id="about" className="section-padding bg-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold text-slate-900 mb-4"
-          >
-            About Me
-          </motion.h2>
-          <motion.div 
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="w-20 h-1 bg-primary-600 mx-auto rounded-full"
-          />
-        </div>
+      {/* Decorative Branding */}
+      <div className="absolute top-0 right-0 p-12 hidden lg:block select-none pointer-events-none">
+        <span className="text-[12rem] font-black text-slate-50 uppercase leading-none origin-top-right rotate-90 inline-block translate-x-1/2">About</span>
+      </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="grid lg:grid-cols-2 gap-24 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="relative"
           >
-            <h3 className="text-3xl font-bold text-slate-800">
-              Passionate Developer building high-performance web solutions
-            </h3>
-            <p className="text-lg text-slate-600 leading-relaxed">
-              With 1.8 years of dedicated experience as a Full Stack Developer, I specialize in crafting robust and scalable web applications. My core expertise lies in the dynamic combination of **.NET Core Web API** and **React.js**.
-            </p>
-            <p className="text-lg text-slate-600 leading-relaxed">
-              I am committed to writing clean, maintainable, and performance-driven code. My goal is always to deliver modern digital experiences that not only look great but function flawlessly under heavy use.
-            </p>
-            
-            <div className="grid grid-cols-2 gap-6 pt-6">
-              {highlights.map((item, index) => (
-                <div key={index} className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center">
-                    {item.icon}
+            <div className="relative z-10 aspect-[4/5] rounded-[4rem] bg-slate-900 overflow-hidden shadow-2xl group">
+               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60" />
+               <div className="absolute inset-0 flex items-center justify-center p-20">
+                  <Cpu size={200} className="text-white/5 group-hover:scale-110 transition-transform duration-1000" />
+               </div>
+               
+               {/* Impact Overlay */}
+               <div className="absolute bottom-12 left-12 right-12 glass-premium p-8 rounded-[2.5rem] border-white/20">
+                  <div className="flex items-end gap-3 mb-2">
+                    <span className="text-6xl font-black text-white tracking-tighter">1.8</span>
+                    <span className="text-xl font-bold text-primary-400 mb-2">Years Pro</span>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-slate-800">{item.title}</h4>
-                    <p className="text-sm text-slate-500">{item.description}</p>
-                  </div>
-                </div>
-              ))}
+                  <p className="text-sm font-bold text-white/70 uppercase tracking-widest">Full Stack Engineering</p>
+               </div>
             </div>
+
+            {/* Achievement Badges */}
+            <motion.div 
+               whileHover={{ scale: 1.05 }}
+               className="absolute -top-8 -right-8 p-6 bg-white rounded-[2rem] shadow-2xl border border-slate-50 z-20 flex flex-col items-center"
+            >
+               <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center text-primary-600 mb-2">
+                  <Database size={24} />
+               </div>
+               <p className="text-[10px] font-black uppercase text-slate-400 tracking-widest">Mastery</p>
+               <p className="font-black text-slate-900">SQL Expert</p>
+            </motion.div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 gap-4"
+            className="space-y-10"
           >
-            <div className="space-y-4 pt-12">
-              <div className="aspect-square rounded-3xl bg-primary-100 p-8 flex flex-col justify-end">
-                <span className="text-4xl font-bold text-primary-600">5+</span>
-                <span className="text-slate-600 font-medium tracking-tight">Client Projects Delivered</span>
-              </div>
-              <div className="aspect-[4/5] rounded-3xl bg-slate-50 p-8 border border-slate-100 flex flex-col justify-center text-center">
-                <div className="w-16 h-16 bg-white rounded-2xl shadow-sm border border-slate-100 flex items-center justify-center mx-auto mb-4">
-                   <Zap className="text-amber-500" fill="currentColor" />
-                </div>
-                <h4 className="font-bold text-slate-800 mb-1">Fast Performance</h4>
-                <p className="text-sm text-slate-500 italic">30% faster API response</p>
-              </div>
+            <div>
+              <motion.span 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                className="text-[10px] font-black uppercase tracking-[0.4em] text-primary-600 mb-6 block"
+              >
+                The Introduction
+              </motion.span>
+              <h3 className="text-5xl md:text-7xl font-black text-slate-900 leading-[0.9] tracking-tighter mb-8">
+                Building <br /> High-IQ <br /> <span className="text-primary-600">Architectures.</span>
+              </h3>
+              <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-lg">
+                I specialize in bridging the gap between high-performance backends and pixel-perfect frontends. My philosophy is simple: **Scalability is not an option, it's a requirement.**
+              </p>
             </div>
-            <div className="space-y-4">
-              <div className="aspect-[4/5] rounded-3xl border border-slate-200 p-8 flex flex-col justify-center items-center text-center">
-                 <div className="text-5xl mb-4">📍</div>
-                 <h4 className="font-bold text-slate-800">Location</h4>
-                 <p className="text-slate-500">Chennai, IN</p>
-              </div>
-              <div className="aspect-square rounded-3xl bg-primary-600 p-8 text-white">
-                <p className="text-sm font-medium opacity-80 uppercase tracking-widest mb-2">Focus</p>
-                <p className="text-xl font-bold leading-tight">Scalable & Performance-driven Code</p>
-              </div>
+
+            <div className="grid grid-cols-2 gap-8">
+               <div className="space-y-2">
+                  <p className="text-3xl font-black text-slate-900 italic">"Clean Code"</p>
+                  <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">My Religion</p>
+               </div>
+               <div className="space-y-2">
+                  <p className="text-3xl font-black text-slate-900 italic">"User First"</p>
+                  <p className="text-xs text-slate-400 font-bold uppercase tracking-wider">My Priority</p>
+               </div>
+            </div>
+
+            <div className="pt-8 flex flex-wrap gap-4">
+               {["System Design", "Agile Workflow", "API Security", "UI/UX Fidelity"].map((skill, idx) => (
+                 <div key={idx} className="px-6 py-3 bg-slate-50 rounded-2xl border border-slate-100 text-xs font-black uppercase tracking-widest text-slate-600">
+                    {skill}
+                 </div>
+               ))}
             </div>
           </motion.div>
         </div>

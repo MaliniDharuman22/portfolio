@@ -32,22 +32,33 @@ const Navbar = () => {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-primary-400 origin-left z-[60]"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-400 to-indigo-500 origin-left z-[70]"
         style={{ scaleX }}
       />
-      <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-slate-900 shadow-2xl py-3' : 'bg-transparent py-6'}`}>
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-          <a href="#" className={`text-2xl font-black tracking-tighter transition-colors duration-300 ${scrolled ? 'text-white' : 'text-primary-600'}`}>
-            Malini<span className={scrolled ? 'text-primary-400' : 'text-slate-900'}>.D</span>
-          </a>
+      <nav className="fixed w-full z-[60] py-6 pointer-events-none">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center pointer-events-auto">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+          >
+            <a href="#" className={`text-3xl font-black tracking-tighter transition-all duration-500 ${scrolled ? 'text-white drop-shadow-lg' : 'text-slate-900'}`}>
+              Malini<span className="text-primary-600">.D</span>
+            </a>
+          </motion.div>
 
-          {/* Desktop Links */}
-          <div className="hidden md:flex items-center space-x-10">
+          {/* Desktop Links - Floating Pill */}
+          <motion.div 
+            animate={{ 
+              y: scrolled ? 0 : 0, 
+              scale: scrolled ? 1 : 1 
+            }}
+            className={`hidden md:flex items-center space-x-2 p-2 rounded-full transition-all duration-700 ${scrolled ? 'bg-slate-900/80 backdrop-blur-2xl border border-white/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)]' : 'bg-transparent'}`}
+          >
             {navLinks.map((link) => (
               <a 
                 key={link.name} 
                 href={link.href} 
-                className={`text-sm font-bold uppercase tracking-widest transition-all duration-300 hover:scale-110 ${scrolled ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-primary-600'}`}
+                className={`px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 rounded-full hover:bg-white/5 ${scrolled ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-primary-600'}`}
               >
                 {link.name}
               </a>
@@ -55,43 +66,56 @@ const Navbar = () => {
             <a 
               href="/resume.pdf" 
               download="Malini_D_Resume.pdf"
-              className={`px-6 py-2.5 rounded-full font-black text-xs uppercase tracking-widest transition-all shadow-lg active:scale-95 ${scrolled ? 'bg-white text-slate-900 hover:bg-primary-50' : 'bg-primary-600 text-white hover:bg-primary-700'}`}
+              className="group relative ml-4"
             >
-              Resume
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-full blur opacity-40 group-hover:opacity-100 transition duration-500" />
+              <div className="relative px-6 py-2 bg-slate-900 rounded-full text-white text-[10px] font-black uppercase tracking-widest leading-none flex items-center gap-2">
+                Resume
+                <Download size={12} className="group-hover:translate-y-0.5 transition-transform" />
+              </div>
             </a>
-          </div>
+          </motion.div>
 
-          {/* Mobile Menu Toggle */}
-          <button className={`md:hidden transition-colors ${scrolled ? 'text-white' : 'text-slate-900'}`} onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {/* Mobile Toggle */}
+          <button className={`md:hidden w-12 h-12 rounded-2xl flex items-center justify-center transition-all ${scrolled ? 'bg-white/5 text-white backdrop-blur-md' : 'bg-slate-900 text-white shadow-xl'}`} onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Cinematic Overlay */}
         {isOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className={`md:hidden absolute top-full left-0 w-full border-t border-white/5 shadow-2xl overflow-hidden ${scrolled ? 'bg-slate-900' : 'bg-white'}`}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="md:hidden fixed inset-0 z-[100] bg-slate-950/95 backdrop-blur-3xl flex flex-col items-center justify-center p-12 pointer-events-auto"
           >
-            <div className="flex flex-col p-8 space-y-6">
-              {navLinks.map((link) => (
-                <a
+            <button className="absolute top-8 right-8 text-white/40 hover:text-white" onClick={() => setIsOpen(false)}>
+               <X size={40} />
+            </button>
+            <div className="flex flex-col space-y-8 text-center">
+              {navLinks.map((link, idx) => (
+                <motion.a
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.1 }}
                   key={link.name}
                   href={link.href}
-                  className={`text-xl font-bold transition-colors ${scrolled ? 'text-slate-300 hover:text-white' : 'text-slate-700 hover:text-primary-600'}`}
+                  className="text-4xl font-black text-white hover:text-primary-500 transition-colors tracking-tighter"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
-                </a>
+                </motion.a>
               ))}
-              <a 
+              <motion.a 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
                 href="/resume.pdf" 
                 download="Malini_D_Resume.pdf"
-                className={`w-full py-4 rounded-2xl font-black text-center uppercase tracking-widest active:scale-95 ${scrolled ? 'bg-white text-slate-900' : 'bg-primary-600 text-white'}`}
+                className="mt-8 px-12 py-5 bg-primary-600 text-white font-black rounded-full uppercase tracking-widest text-xs shadow-2xl"
               >
-                Resume
-              </a>
+                Download Resume
+              </motion.a>
             </div>
           </motion.div>
         )}

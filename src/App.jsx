@@ -13,20 +13,31 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Achievements />
-        <Education />
-        <Certifications />
-        <Contact />
-      </main>
-      <Footer />
+    <div className="min-h-screen bg-[#fafafa] font-sans text-slate-900 relative selection:bg-primary-100 selection:text-primary-900">
+      {/* Global Grain & Texture */}
+      <div className="grain-overlay" />
+      
+      {/* Global Mesh Gradients */}
+      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-[10%] left-[-5%] w-[40vw] h-[40vw] bg-primary-100/30 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[10%] right-[-5%] w-[35vw] h-[35vw] bg-indigo-100/30 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="relative z-10">
+        <Navbar />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Experience />
+          <Projects />
+          <Achievements />
+          <Education />
+          <Certifications />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }

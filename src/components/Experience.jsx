@@ -20,71 +20,103 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="section-padding bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold text-slate-900 mb-4"
-          >
-            Work Experience
-          </motion.h2>
-          <motion.div 
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="w-20 h-1 bg-primary-600 mx-auto rounded-full"
-          />
+    <section id="experience" className="section-padding bg-slate-900 relative overflow-hidden">
+      {/* Decorative Atmosphere */}
+      <div className="absolute inset-0 z-0 opacity-30">
+        <div className="absolute top-[20%] right-[-10%] w-[40vw] h-[40vw] bg-primary-900 rounded-full blur-[150px]" />
+        <div className="absolute bottom-[20%] left-[-10%] w-[35vw] h-[35vw] bg-indigo-900 rounded-full blur-[150px]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+          <div className="max-w-xl">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter"
+            >
+              Career <br /> <span className="text-primary-500">Expedition</span>
+            </motion.h2>
+            <p className="text-xl text-slate-400 font-medium leading-relaxed">
+              Charting the course through enterprise challenges and architectural breakthroughs.
+            </p>
+          </div>
+          <div className="hidden lg:block text-right">
+             <span className="text-8xl font-black text-white/5 leading-none">VIVIFY</span>
+          </div>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto relative">
+          {/* Vertical Linear Gradient Line */}
+          <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-4 bottom-4 w-px bg-gradient-to-b from-primary-500/0 via-primary-500/50 to-primary-500/0" />
+
           {experiences.map((exp, idx) => (
             <motion.div 
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative pl-8 md:pl-0"
+              className="relative mb-32 last:mb-0"
             >
-              {/* Timeline Connector */}
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary-100 md:left-1/2 md:-ml-0.5" />
+              {/* Central Year Node */}
+              <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-0 mt-[1.2rem] w-12 h-12 glass-premium rounded-2xl border-primary-500/30 flex items-center justify-center z-20 shadow-[0_0_30px_rgba(14,165,233,0.3)]">
+                 <div className="w-2 h-2 bg-primary-500 rounded-full animate-pulse" />
+              </div>
 
-              <div className="relative mb-12">
-                {/* Timeline Dot */}
-                <div className="absolute left-[-36px] top-6 w-8 h-8 rounded-full border-4 border-white bg-primary-600 shadow-lg md:left-1/2 md:-ml-4" />
+              <div className={`grid md:grid-cols-2 gap-16 ${idx % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
+                {/* Duration Side */}
+                <div className={`pl-20 md:pl-0 pt-2 ${idx % 2 === 0 ? 'md:text-right md:pr-16' : 'md:order-2 md:pl-16 md:text-left'}`}>
+                  <motion.div 
+                     initial={{ opacity: 0 }}
+                     whileInView={{ opacity: 1 }}
+                     className="inline-block"
+                  >
+                    <span className="text-4xl font-black text-white tracking-tighter block">{exp.duration.split(' – ')[0]}</span>
+                    <span className="text-sm font-black text-primary-500 uppercase tracking-[0.3em]">{exp.duration.split(' – ')[1]}</span>
+                  </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-8 items-start">
-                  {/* Left Side (Empty on even, content on odd in standard multi-exp timelines) */}
-                  <div className="hidden md:block text-right pr-12 pt-6">
-                     <span className="text-primary-600 font-bold text-xl">{exp.duration}</span>
+                  <div className="mt-8 flex flex-wrap gap-2 justify-start md:justify-end">
+                    {[".NET CORE", "REACT", "SQL SERVER"].map((skill, si) => (
+                      <span key={si} className="px-3 py-1 bg-white/5 rounded-lg text-[9px] font-black text-white/40 border border-white/5 tracking-widest">
+                        {skill}
+                      </span>
+                    ))}
                   </div>
+                </div>
 
-                  {/* Right Side / Box */}
-                  <div className="glass-card p-8 rounded-3xl border-l-4 border-l-primary-600 shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-                      <div>
-                        <h3 className="text-2xl font-bold text-slate-900">{exp.role}</h3>
-                        <div className="flex items-center gap-2 text-primary-600 font-semibold mt-1">
-                          <Building2 size={18} />
-                          <span>{exp.company}, {exp.location}</span>
-                        </div>
-                      </div>
-                      <div className="md:hidden flex items-center gap-2 text-slate-500 bg-slate-100 px-3 py-1 rounded-full text-sm">
-                        <Calendar size={14} />
-                        <span>{exp.duration}</span>
-                      </div>
+                {/* Content Side */}
+                <div className={`pl-20 md:pl-0 ${idx % 2 === 0 ? 'md:order-2 md:pl-0' : 'md:text-right md:order-1'}`}>
+                  <div className="glass-premium p-10 rounded-[3.5rem] border-white/10 hover:border-primary-500/30 transition-all duration-500 group">
+                    <div className="flex items-center gap-4 mb-8">
+                       <div className="w-14 h-14 rounded-2xl bg-primary-600 flex items-center justify-center text-white shadow-2xl group-hover:rotate-6 transition-transform">
+                          <Building2 size={24} />
+                       </div>
+                       <div>
+                          <h3 className="text-2xl font-black text-white tracking-tight leading-none">{exp.role}</h3>
+                          <p className="text-sm font-bold text-slate-500 mt-2">{exp.company} • {exp.location}</p>
+                       </div>
                     </div>
 
-                    <ul className="space-y-4">
-                      {exp.highlights.map((item, iIdx) => (
-                        <li key={iIdx} className="flex gap-3 text-slate-600">
-                          <CheckCircle2 size={18} className="text-primary-500 mt-1 flex-shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="space-y-5">
+                       {exp.highlights.slice(0, 3).map((item, hi) => (
+                         <div key={hi} className="flex gap-4">
+                            <div className="w-1.5 h-1.5 bg-primary-600 rounded-full mt-2 flex-shrink-0" />
+                            <p className="text-slate-400 text-sm font-medium leading-relaxed">{item}</p>
+                         </div>
+                       ))}
+                    </div>
+
+                    <div className="mt-10 pt-8 border-t border-white/5 flex items-center justify-between">
+                       <div className="flex -space-x-3">
+                          {[1,2,3].map(i => (
+                             <div key={i} className="w-8 h-8 rounded-full border-2 border-slate-900 bg-slate-800 flex items-center justify-center">
+                                <span className="text-[10px] font-black text-primary-500">+{i}</span>
+                             </div>
+                          ))}
+                       </div>
+                       <a href="#" className="text-[10px] font-black text-white uppercase tracking-widest border-b border-white/10 pb-1 hover:border-primary-500 transition-colors">Details</a>
+                    </div>
                   </div>
                 </div>
               </div>
