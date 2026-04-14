@@ -39,7 +39,6 @@ const Contact = () => {
             <div className="space-y-6">
               {[
                 { icon: <Mail />, title: "Email", info: "malini220402@gmail.com" },
-                { icon: <Phone />, title: "Phone", info: "+91 6383726649" },
                 { icon: <MapPin />, title: "Location", info: "Chennai, India" }
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-6 group">

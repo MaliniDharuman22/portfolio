@@ -1,5 +1,6 @@
 import React from 'react';
-import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
+import { Linkedin, Mail, ArrowUp } from 'lucide-react';
+import GithubIcon from 'lucide-react/dist/esm/icons/github';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -19,7 +20,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               {[
-                { icon: <Github size={20} />, href: "#" },
+                { icon: <GithubIcon size={20} />, href: "#" },
                 { icon: <Linkedin size={20} />, href: "#" },
                 { icon: <Mail size={20} />, href: "mailto:malini220402@gmail.com" }
               ].map((social, idx) => (
