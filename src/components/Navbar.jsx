@@ -37,30 +37,24 @@ const Navbar = () => {
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-400 to-indigo-500 origin-left z-[70]"
         style={{ scaleX }}
       />
-      <nav className="fixed w-full z-[60] py-6 pointer-events-none">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center pointer-events-auto">
+      <nav className={`fixed w-full z-[60] transition-all duration-500 ${scrolled ? 'py-4' : 'py-8'}`}>
+        <div className={`max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center transition-all duration-500 ${scrolled ? 'bg-slate-900/90 backdrop-blur-2xl py-3 rounded-[2rem] border border-white/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.3)] mt-4' : 'bg-transparent'}`}>
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
           >
-            <a href="#" className={`text-3xl font-black tracking-tighter transition-all duration-500 flex items-center gap-2 px-6 py-2 rounded-2xl ${scrolled ? 'text-white bg-slate-900/80 backdrop-blur-xl border border-white/10 shadow-2xl' : 'text-slate-900 bg-transparent'}`}>
-              Malini<span className="text-primary-600">.D</span>
+            <a href="#" className={`text-2xl md:text-3xl font-black tracking-tighter transition-all duration-500 flex items-center gap-2 group ${scrolled ? 'text-white' : 'text-slate-900'}`}>
+              Malini<span className="text-primary-600 transition-transform group-hover:scale-125">.D</span>
             </a>
           </motion.div>
 
-          {/* Desktop Links - Floating Pill */}
-          <motion.div 
-            animate={{ 
-              y: scrolled ? 0 : 0, 
-              scale: scrolled ? 1 : 1 
-            }}
-            className={`hidden md:flex items-center space-x-2 p-2 rounded-full transition-all duration-700 ${scrolled ? 'bg-slate-900/80 backdrop-blur-2xl border border-white/10 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.5)]' : 'bg-transparent'}`}
-          >
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
               <a 
                 key={link.name} 
                 href={link.href} 
-                className={`px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 rounded-full hover:bg-white/5 ${scrolled ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-primary-600'}`}
+                className={`px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 rounded-full ${scrolled ? 'text-slate-300 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:text-primary-600 hover:bg-slate-100'}`}
               >
                 {link.name}
               </a>
@@ -71,15 +65,18 @@ const Navbar = () => {
               className="group relative ml-4"
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-full blur opacity-40 group-hover:opacity-100 transition duration-500" />
-              <div className="relative px-6 py-2 bg-slate-900 rounded-full text-white text-[10px] font-black uppercase tracking-widest leading-none flex items-center gap-2">
+              <div className="relative px-6 py-2 bg-slate-900 rounded-full text-white text-[10px] font-black uppercase tracking-widest leading-none flex items-center gap-2 border border-white/10">
                 Resume
                 <Download size={12} className="group-hover:translate-y-0.5 transition-transform" />
               </div>
             </a>
-          </motion.div>
+          </div>
 
           {/* Mobile Toggle */}
-          <button className={`md:hidden w-12 h-12 rounded-2xl flex items-center justify-center transition-all ${scrolled ? 'bg-white/5 text-white backdrop-blur-md' : 'bg-slate-900 text-white shadow-xl'}`} onClick={() => setIsOpen(!isOpen)}>
+          <button 
+            className={`md:hidden w-12 h-12 rounded-2xl flex items-center justify-center transition-all ${scrolled ? 'text-white hover:bg-white/10' : 'bg-slate-900 text-white shadow-xl'}`} 
+            onClick={() => setIsOpen(!isOpen)}
+          >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>

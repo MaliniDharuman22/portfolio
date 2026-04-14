@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-start gap-24 mb-32">
           <div className="flex-1">
             <a href="#" className="text-5xl font-black text-white tracking-tighter mb-8 block">
-              Malini<span className="text-primary-600">.</span>
+              Malini<span className="text-primary-600">.D</span>
             </a>
             <p className="text-2xl text-slate-500 font-medium leading-tight max-w-sm mb-12 tracking-tight">
               Architecting the next generation of enterprise digital experiences.

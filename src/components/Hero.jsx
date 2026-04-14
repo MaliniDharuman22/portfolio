@@ -116,8 +116,8 @@ const Hero = () => {
                     <span className="text-5xl font-black text-white tracking-tighter">1.8<span className="text-primary-400">+</span></span>
                     <Sparkles className="text-primary-400 animate-spin-slow" size={24} />
                   </div>
-                  <p className="text-sm font-black text-white/90 uppercase tracking-[0.25em]">Years Mastery</p>
-                  <p className="text-[10px] text-white/50 mt-1">Full Stack Architecture</p>
+                  <p className="text-sm font-black text-white uppercase tracking-[0.25em]">Years Mastery</p>
+                  <p className="text-[10px] text-white/80 mt-1">Full Stack Architecture</p>
                 </div>
              </div>
           </div>
@@ -126,28 +126,28 @@ const Hero = () => {
           <motion.div 
             animate={{ y: [0, -25, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-10 -right-12 p-6 glass-premium rounded-[2.5rem] border-white/40 flex items-center gap-5 z-20 group hover:scale-110 transition-transform shadow-2xl"
+            className="absolute -top-10 -right-12 p-6 bg-slate-900/90 backdrop-blur-xl border border-white/10 rounded-[2.5rem] flex items-center gap-5 z-20 group hover:scale-110 transition-transform shadow-2xl"
           >
             <div className="w-16 h-16 rounded-[1.5rem] bg-gradient-to-br from-orange-400 to-rose-500 flex items-center justify-center text-white shadow-xl rotate-3 group-hover:rotate-12 transition-transform">
               <span className="text-2xl font-black">JS</span>
             </div>
             <div>
-              <p className="text-[10px] text-primary-200 font-black uppercase tracking-[0.3em] mb-1">Frontend</p>
-              <p className="font-black text-white text-xl">React.js</p>
+              <p className="text-[10px] text-primary-400 font-black uppercase tracking-[0.3em] mb-1">Frontend</p>
+              <p className="font-black text-slate-100 text-xl">React.js</p>
             </div>
           </motion.div>
 
           <motion.div 
             animate={{ y: [0, 25, 0] }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute -bottom-8 -left-16 p-6 glass-premium rounded-[2.5rem] border-white/40 flex items-center gap-5 z-20 group hover:scale-110 transition-transform shadow-2xl"
+            className="absolute -bottom-8 -left-16 p-6 bg-slate-900/90 backdrop-blur-xl border border-white/10 rounded-[2.5rem] flex items-center gap-5 z-20 group hover:scale-110 transition-transform shadow-2xl"
           >
             <div className="w-16 h-16 rounded-[1.5rem] bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white shadow-xl -rotate-6 group-hover:rotate-0 transition-transform">
               <span className="text-4xl font-black">#</span>
             </div>
             <div>
-              <p className="text-[10px] text-primary-200 font-black uppercase tracking-[0.3em] mb-1">Backend</p>
-              <p className="font-black text-white text-xl">.NET Core</p>
+              <p className="text-[10px] text-primary-400 font-black uppercase tracking-[0.3em] mb-1">Backend</p>
+              <p className="font-black text-slate-100 text-xl">.NET Core</p>
             </div>
           </motion.div>
         </motion.div>

@@ -19,18 +19,29 @@ const Projects = () => {
       tech: ["React", "Web API", "SQL Server"],
       features: ["Product Catalog", "Cart System", "Order Management"]
     },
-    // ... rest same but with images if possible
+    {
+      title: "FinTrack Pro",
+      description: "Automated reimbursement workflow with multi-level approval hierarchies.",
+      tech: [".NET Core", "React", "SQL Server"],
+      features: ["Claim Submission", "Approval Flow", "Receipt Intelligence"]
+    },
+    {
+      title: "Inventory Mastery",
+      description: "Real-time stock tracking with predictive analytics and automated reordering.",
+      tech: [".NET Core", "React", "Entity Framework"],
+      features: ["Stock Forecasting", "Supplier Portals", "Batch Management"]
+    },
+    {
+      title: "Elite CRM",
+      description: "Customer relationship management with integrated sales pipelines and reporting.",
+      tech: ["React", "ASP.NET Core", "Azure"],
+      features: ["Lead Tracking", "Sales Analytics", "Client Segments"]
+    },
     {
       title: "Safety Shield",
       description: "Internal compliance and certification management system with automated tracking.",
       tech: ["React", ".NET Core", "EF Core"],
       features: ["Course Management", "Test Modules", "Auto-Certification"]
-    },
-    {
-       title: "FinTrack Pro",
-       description: "Automated reimbursement workflow with multi-level approval hierarchies.",
-       tech: [".NET Core", "React", "SQL Server"],
-       features: ["Claim Submission", "Approval Flow", "Receipt Intelligence"]
     }
   ];
 
