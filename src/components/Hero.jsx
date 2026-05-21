@@ -113,7 +113,7 @@ const Hero = () => {
                 {/* Floating Stats Bento */}
                 <div className="absolute inset-x-8 bottom-8 p-8 glass-premium rounded-[2.5rem] transform group-hover:-translate-y-4 transition-transform duration-700">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-5xl font-black text-white tracking-tighter">1.8<span className="text-primary-400">+</span></span>
+                    <span className="text-5xl font-black text-white tracking-tighter">1.9<span className="text-primary-400">+</span></span>
                     <Sparkles className="text-primary-400 animate-spin-slow" size={24} />
                   </div>
                   <p className="text-sm font-black text-white uppercase tracking-[0.25em]">Years Mastery</p>

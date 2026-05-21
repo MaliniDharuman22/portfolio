@@ -4,7 +4,7 @@ import { Award, Code, Database, Zap, Cpu } from 'lucide-react';
 
 const About = () => {
   const highlights = [
-    { icon: <Zap size={24} />, title: "1.8+ Years", description: "Experience as Full Stack Developer" },
+    { icon: <Zap size={24} />, title: "1.9 Years", description: "Experience as Full Stack Developer" },
     { icon: <Code size={24} />, title: "Full Stack", description: ".NET Core & React.js Expertise" },
     { icon: <Database size={24} />, title: "Database", description: "SQL Server & MySQL proficiency" },
     { icon: <Award size={24} />, title: "Quality", description: "Focus on clean & scalable code" },
