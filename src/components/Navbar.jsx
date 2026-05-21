@@ -20,6 +20,17 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleDownload = async () => {
+    const response = await fetch('/resume.pdf');
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Malini_D_Resume.pdf';
+    a.click();
+    window.URL.revokeObjectURL(url);
+  };
+
   const navLinks = [
     { name: 'About', href: '#about' },
     { name: 'Education', href: '#education' },
@@ -59,9 +70,8 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <a 
-              href="/resume.pdf" 
-              download="Malini_D_Resume.pdf"
+            <button
+              onClick={handleDownload}
               className="group relative ml-4"
             >
               <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-indigo-600 rounded-full blur opacity-40 group-hover:opacity-100 transition duration-500" />
@@ -69,7 +79,7 @@ const Navbar = () => {
                 Resume
                 <Download size={12} className="group-hover:translate-y-0.5 transition-transform" />
               </div>
-            </a>
+            </button>
           </div>
 
           {/* Mobile Toggle */}
@@ -105,16 +115,15 @@ const Navbar = () => {
                   {link.name}
                 </motion.a>
               ))}
-              <motion.a 
+              <motion.button
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7 }}
-                href="/resume.pdf" 
-                download="Malini_D_Resume.pdf"
+                onClick={handleDownload}
                 className="mt-8 px-12 py-5 bg-primary-600 text-white font-black rounded-full uppercase tracking-widest text-xs shadow-2xl"
               >
                 Download Resume
-              </motion.a>
+              </motion.button>
             </div>
           </motion.div>
         )}
